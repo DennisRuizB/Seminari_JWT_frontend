@@ -28,5 +28,34 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('access_token');
   }
+
+  async refreshAccesToken(): Promise<string | null> {
+    const refreshToken = localStorage.getItem('refresh_token');
+    if (refreshToken) {
+      try {
+        // Realiza la solicitud al backend para renovar el token
+        const response: any = await this.http.post(`${this.apiUrl}/refreshToken`, { refreshToken }).toPromise();
+  
+        // Extrae el token del objeto de respuesta
+        const accessToken = response?.accessToken; // Asegúrate de que el backend devuelva el token en `response.accessToken`
+        if (accessToken) {
+          localStorage.setItem('access_token', accessToken);
+          console.log("AccessToken renovado exitosamente:", accessToken);
+          return accessToken;
+        } else {
+          console.error('No se recibió un nuevo token en la respuesta.');
+          return null;
+        }
+      } catch (error) {
+        console.error('Error al renovar el token:', error);
+        return null;
+      }
+    } else {
+      console.error('No se encontró el refresh_token en el localStorage.');
+      return null;
+    }
+  }
+
+
 }
 

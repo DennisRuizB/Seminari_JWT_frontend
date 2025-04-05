@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       
     });
     this.formularioLogin = this.form.group({
-      email: ['joan1234@example.com', [Validators.required, Validators.email]], // Valor predeterminado para el email
+      email: ['paco@gmail.com', [Validators.required, Validators.email]], // Valor predeterminado para el email
       password: ['12345678', [Validators.required, Validators.minLength(8)]] // Valor predeterminado para la contraseña
     });
   };
@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         console.log('Login exitoso:', response);
         localStorage.setItem('access_token', response.token);
+        localStorage.setItem('refresh_token', response.refreshToken);
         this.exportLoggedIn.emit(true);
       },
       error: (error) => {
