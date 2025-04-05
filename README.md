@@ -1,3 +1,26 @@
+# SEMINARI JWT
+
+# 📌 Fonts de l'Exercici
+
+## 📂 Repositori
+🔗 [Repositori proporcionat per fer l'exercici]
+
+## 🎥 Videos Recomanats Per Aprendre Com Funciona JWT i Refresh Token
+
+## Presentació feta per els companys del seminari
+
+## 🤖 Assistència
+💡 **ChatGPT** per aclarir dubtes i obtenir explicacions addicionals.
+
+
+
+
+
+
+
+
+
+
 # AngularSeminari6
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
